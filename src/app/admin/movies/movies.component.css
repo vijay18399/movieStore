@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+}
+.message {
+  color: black;
+  background-color: #7cff40;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}

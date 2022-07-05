@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+label {
+  width: 20%;
+}
+.chips {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.actions {
+  width: 10%;
+}
+.chip {
+  background-color: rgb(120, 221, 120);
+  padding: 8px;
+  margin: 4px;
+  border-radius: 10px;
+}
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

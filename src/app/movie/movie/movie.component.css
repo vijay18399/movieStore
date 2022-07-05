@@ -1,0 +1,35 @@
+.container {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.loading-card {
+  margin: 10px;
+  width: 800px;
+  height: 85vh;
+}
+.card {
+  margin: 10px;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+img {
+  margin: 15px;
+  width: 295px;
+  height: 400px;
+}
+
+.right {
+  margin: 5px;
+  width: 295px;
+}
+.title {
+  margin: 4px;
+}

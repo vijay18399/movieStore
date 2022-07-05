@@ -1,0 +1,24 @@
+    <div class="pagination">
+      <div class="display-row" *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <button mat-icon-button color="primary" class="btn" (click)="pageChanged(1)"
+          [disabled]="pager.currentPage === 1">
+          <mat-icon>first_page</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="pageChanged(pager.currentPage - 1)"
+          [disabled]="pager.currentPage === 1">
+          <mat-icon>navigate_before</mat-icon>
+        </button>
+        <button [color]="getColor(page)" [disabled]="pager.pages.length==1" mat-mini-fab mat-icon-button
+          (click)="pageChanged(page)" *ngFor="let page of pager.pages">
+          {{page}}
+        </button>
+        <button mat-icon-button color="primary" (click)="pageChanged(pager.currentPage + 1)"
+          [disabled]="pager.currentPage === pager.totalPages">
+          <mat-icon>navigate_next</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="pageChanged(pager.totalPages)"
+          [disabled]="pager.currentPage === pager.totalPages">
+          <mat-icon>last_page</mat-icon>
+        </button>
+      </div>
+    </div>

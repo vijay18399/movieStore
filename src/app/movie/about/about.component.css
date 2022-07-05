@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+mat-card {
+  margin: 10px;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.divider {
+  width: 30%;
+  height: 5px;
+  margin: 15px auto;
+  background: #ff4081;
+}
+.profile-img {
+  width: 70px;
+  border-radius: 50%;
+}
+.chips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chip {
+  height: 90px;
+  width: 100px;
+}
+.chip2 {
+  height: 60px;
+  width: 100px;
+}

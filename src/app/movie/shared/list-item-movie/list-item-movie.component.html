@@ -1,0 +1,6 @@
+    <div routerLink="/movie/{{movie._id}}" class="movie">
+      <img *ngIf="movie.poster!=''" loading="lazy" class="poster" [src]="movie.poster">
+      <img *ngIf="movie.poster==''" class="poster"
+        src="https://www.cinemahalls.com/wp-content/uploads/2019/10/Picture-Not-Available.jpg">
+      <h4>{{ movie.name }}</h4>
+    </div>

@@ -1,0 +1,38 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        UserName
+      </mat-panel-title>
+      <mat-panel-description>
+        Email
+
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{user.username}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{user.email}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="content">
+      <label for="role">Roles Assigned</label>
+      <div class="chips">
+        <div *ngFor="let role of user.roles" class="chip">{{role}}</div>
+      </div>
+      <div class="actions">
+        <mat-icon (click)="assignRole(user)">edit</mat-icon>
+      </div>
+    </div>
+
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+<app-pagination (_pageChanged)="pageChanged($event)" [perPage]="perPage" [totalCount]="totalCount"
+  [currentPage]="currentpage" *ngIf="!loading">
+</app-pagination>

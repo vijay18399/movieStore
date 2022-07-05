@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar" color="primary">
+  <img class="logo" src="assets/images/w-clapperboard.png">
+  <span routerLink="/">MovieStore</span>
+  <span class="spacer"></span>
+  <button routerLink="/about" mat-button>
+    About Project
+  </button>
+  <button routerLink="/search" mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+  <button *ngIf="!!tokenStorage.getToken()" routerLink="profile" mat-icon-button>
+    <mat-icon>person</mat-icon>
+  </button>
+  <button *ngIf="!tokenStorage.getToken()" routerLink="login" mat-icon-button>
+    <mat-icon>login</mat-icon>
+  </button>
+
+</mat-toolbar>
+<router-outlet></router-outlet>

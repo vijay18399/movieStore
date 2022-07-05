@@ -1,0 +1,28 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="search-box">
+  <mat-form-field class="select-field" appearance="fill">
+    <mat-label>Search By</mat-label>
+    <mat-select [(ngModel)]="searchFor" name="food">
+      <mat-option *ngFor="let filter of filters" [value]="filter.value">
+        {{filter.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Search Movie</mat-label>
+    <input matInput type="text" [(ngModel)]="key">
+  </mat-form-field>
+  <button (click)="onSearch()" mat-mini-fab>
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+<div *ngIf="!loading" class="list">
+  <app-list-item-movie [movie]="movie" *ngFor="let movie of movieList"> </app-list-item-movie>
+</div>
+<div *ngIf="loading" class="list">
+  <div *ngFor="let x of [1,2,3,4,5,6,7]" class="card mat-elevation-z5">
+  </div>
+</div>
+<app-pagination (_pageChanged)="pageChanged($event)" [perPage]="perPage" [totalCount]="totalCount"
+  [currentPage]="currentpage" *ngIf="!loading">
+</app-pagination>

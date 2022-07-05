@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <mat-card *ngIf="loading" class="loading-card"></mat-card>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+  <span *ngIf="errorMessage"> <button mat-raised-button color="primary" [routerLink]="['/add']"
+      [queryParams]="{ _id: movie_id}">Add Movie</button></span>
+  <mat-card *ngIf="!loading && !errorMessage" class="card">
+    <div class="left">
+      <img mat-card-image *ngIf="movie.poster!=''" loading="lazy" class="poster" [src]="movie.poster">
+      <img mat-card-image *ngIf="movie.poster==''" class="poster"
+        src="https://www.cinemahalls.com/wp-content/uploads/2019/10/Picture-Not-Available.jpg">
+
+      <mat-card-header>
+        <mat-card-title>{{movie.name}}</mat-card-title>
+        <mat-card-subtitle>{{movie.year}}
+          <span *ngIf="movie.runtime">| {{movie.runtime}} Runtime </span>
+          <span *ngIf="movie.audience_rating">| {{movie.audience_rating}} Rating </span>
+
+        </mat-card-subtitle>
+      </mat-card-header>
+    </div>
+    <div class="right">
+      <mat-card-content>
+        <p>
+          {{movie.plot}}
+        </p>
+        <div *ngIf="movie.languages.length!=0" class="title">Languages</div>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip *ngFor="let l of movie.languages" selected>{{l| titlecase }}</mat-chip>
+        </mat-chip-list>
+        <div *ngIf="movie.genres.length!=0" class="title">Genres</div>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip *ngFor="let g of movie.genres" color="primary" selected>{{g}}</mat-chip>
+        </mat-chip-list>
+        <div *ngIf="movie.actors.length!=0" class="title">Crew</div>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip *ngFor="let a of movie.actors" color="accent" selected>{{a}}</mat-chip>
+        </mat-chip-list>
+        <div *ngIf="movie.directors.length!=0" class="title">Directors</div>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip *ngFor="let d of movie.directors" color="warn">{{d}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+
+    </div>
+  </mat-card>
+
+</div>

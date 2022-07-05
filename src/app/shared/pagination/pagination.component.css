@@ -1,0 +1,15 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-row {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  margin: 8px 10px;
+}

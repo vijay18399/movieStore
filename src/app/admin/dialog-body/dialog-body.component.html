@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Update Roles</h2>
+
+<mat-dialog-content>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Roles </mat-label>
+    <mat-chip-list #roleList>
+      <mat-chip *ngFor="let role of data.roles ;let i=index" (removed)="removeRole(i)">
+        {{role}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input placeholder="Add Director" [matChipInputFor]="roleList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addRole($event)">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let role of filteredRoles | async" [value]="role">
+          {{role}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-chip-list>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions> <button class="mat-raised-button" (click)="update()">Update</button>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+</mat-dialog-actions>

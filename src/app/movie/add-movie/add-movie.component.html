@@ -1,0 +1,134 @@
+<mat-tab-group color="primary" backgroundColor="accent">
+  <mat-tab label="Movie Details">
+    <div class="container full-width">
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      <mat-card class="card">
+        <div class="control">
+          <mat-form-field class="half-width" appearance="fill">
+            <mat-label>Movie Id</mat-label>
+            <input type="text" matInput [(ngModel)]="movie._id">
+          </mat-form-field>
+          <button class="half-width-btn" [disabled]="!movie._id" (click)="webScrap()" mat-mini-fab>
+            <mat-icon>download</mat-icon>
+          </button>
+        </div>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie Title</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.name" placeholder="Enter Movie Title">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie year</mat-label>
+          <input type="number" matInput [(ngModel)]="movie.year" placeholder="Enter Movie Year">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie link</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.link" placeholder="Enter Movie Link">
+        </mat-form-field>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Cast & Director">
+    <div class="container full-width">
+      <mat-card class="card">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Languages </mat-label>
+          <mat-chip-list #languageList>
+            <mat-chip *ngFor="let l of movie.languages ;let i=index" (removed)="removeLanguage(i)">
+              {{l}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Add Languages" [matChipInputFor]="languageList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addLanguage($event)">
+          </mat-chip-list>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Directors </mat-label>
+          <mat-chip-list #directorList>
+            <mat-chip *ngFor="let d of movie.directors ;let i=index" (removed)="removeDirector(i)">
+              {{d}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Add Director" [matChipInputFor]="directorList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addDirector($event)">
+          </mat-chip-list>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Actors </mat-label>
+          <mat-chip-list #actorList>
+            <mat-chip *ngFor="let a of movie.actors ;let i=index" (removed)="removeActor(i)">
+              {{a}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Add Actor" [matChipInputFor]="actorList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addActor($event)">
+          </mat-chip-list>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Genres </mat-label>
+          <mat-chip-list #genreList>
+            <mat-chip *ngFor="let g of movie.genres ;let i=index" (removed)="removeGenre(i)">
+              {{g}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Add Genre" [matChipInputFor]="genreList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addGenre($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Imdb Ratings & Details">
+    <div class="container full-width">
+      <mat-card class="card">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Imdb Audience Rating</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.audience_rating" placeholder="Enter Audience Rating">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Imdb Rating</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.rating" placeholder="Enter Movie Rating">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Imdb Movie Votes</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.votes" placeholder="Imdb Votes">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie Poster</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.poster" placeholder="Poster Url">
+        </mat-form-field>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Other Details">
+    <div class="container full-width">
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      <mat-card class="card">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie year</mat-label>
+          <input type="number" matInput [(ngModel)]="movie.year" placeholder="Enter Movie year">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie Plot</mat-label>
+          <textarea matInput [(ngModel)]="movie.plot" placeholder="Enter Movie Plot"></textarea>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Movie Runtime</mat-label>
+          <input type="text" matInput [(ngModel)]="movie.runtime" placeholder="Enter Movie Runtime">
+        </mat-form-field>
+        <button (click)="addMovie()" mat-raised-button color="primary">Add Movie</button>
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

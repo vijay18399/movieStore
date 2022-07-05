@@ -1,0 +1,23 @@
+.movie {
+  margin: 10px 0px 5px 5px;
+  transition: transform ease 400ms;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 185px;
+}
+
+.poster {
+  width: 160px;
+  height: 175px;
+  border-radius: 10px;
+}
+h4 {
+  font-size: 12px;
+}
+h4:hover {
+  color: blueviolet;
+  cursor: pointer;
+}

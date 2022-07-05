@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="list-container">
+    <mat-tab-group class="tab" (selectedIndexChange)="tabChanged($event)" color="primary" backgroundColor="accent">
+      <mat-tab label="Year -- Descending">
+      </mat-tab>
+      <mat-tab label="Year -- Ascending">
+      </mat-tab>
+      <mat-tab label="Name -- Ascending">
+      </mat-tab>
+      <mat-tab label="Name -- Descending">
+      </mat-tab>
+    </mat-tab-group>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <div *ngIf="!loading" class="list">
+      <app-list-item-movie [movie]="movie" *ngFor="let movie of movieList"> </app-list-item-movie>
+    </div>
+    <div *ngIf="loading" class="list">
+      <div *ngFor="let x of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]" class="card mat-elevation-z5">
+      </div>
+    </div>
+    <app-pagination (_pageChanged)="pageChanged($event)" [perPage]="getPerPage(innerWidth)" [totalCount]="totalCount"
+      [currentPage]="currentPage" *ngIf="!loading">
+    </app-pagination>
+
+  </div>
+</div>

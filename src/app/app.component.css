@@ -1,0 +1,11 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.logo {
+  width: 22px;
+  height: 22px;
+  margin: 5px;
+}
+.toolbar {
+  height: 55px;
+}

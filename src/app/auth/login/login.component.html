@@ -1,0 +1,24 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="container full-width">
+  <mat-card class="card">
+    <div class="error" *ngIf="isLoginFailed"> {{ errorMessage}} </div>
+    <mat-card-title>Please Login</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input type="username" matInput formControlName="username" placeholder="Enter User Name">
+
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Enter your password">
+      </mat-form-field>
+
+      <button type="submit" mat-flat-button color="primary">Login</button>
+
+      <span>Don't have Account <a routerLink="/register">Sign Up</a></span>
+
+
+    </form>
+  </mat-card>
+</div>

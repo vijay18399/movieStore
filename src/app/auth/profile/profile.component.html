@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-title>Profile</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput disabled [(ngModel)]="user.username" placeholder="Enter Username">
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput disabled [(ngModel)]="user.email" placeholder="Enter Email">
+      </mat-form-field>
+      <label *ngIf="isModerator || isAdmin">Roles Assigned</label>
+      <mat-chip-list *ngIf="isModerator || isAdmin" aria-label=" Fish selection">
+        <mat-chip color="accent" *ngFor="let role of user.roles">{{role | titlecase}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <button *ngIf="isModerator" color="primary" mat-raised-button routerLink="/dashboard"
+        mat-button>Dashboard</button>
+      <button color="primary" mat-raised-button (click)="Logout()" mat-button>Logout</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.example-card {
+  width: 165px;
+  margin: 5px;
+}
+h4 {
+  font-size: 14px;
+  height: 40px;
+}
+h4:hover {
+  color: blueviolet;
+  cursor: pointer;
+}
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-row {
+  width: 200px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.select-field {
+  width: 120px;
+}
+.form-field {
+  width: 200px;
+}

@@ -1,0 +1,17 @@
+<div class="dashboard">
+  <div *ngIf="isModerator" class="card  mat-elevation-z5">
+    <h1>{{movie_count}}</h1>
+    <span>Movies</span>
+    <div class="footer">
+      <button routerLink="/movies" mat-raised-button color="primary">Movies Dashboard</button>
+      <button routerLink="/add" mat-raised-button color="accent">Add Movie</button>
+    </div>
+  </div>
+  <div *ngIf="isAdmin" class="card  mat-elevation-z5">
+    <h1>{{user_count}}</h1>
+    <span>Users</span>
+    <div class="footer">
+      <button routerLink="/users" mat-raised-button color="primary">Users Dashboard</button>
+    </div>
+  </div>
+</div>
